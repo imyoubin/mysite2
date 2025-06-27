@@ -14,29 +14,35 @@
 
     <body>
        <div class="wrap">
-            <header class="clearfix">
+           <header class="clearfix">
                 <h1><a href="">MySite</a></h1>
               
-                <!--
-			    <ul class="clearfix">
-				    <li><span class="user-welcome">황일영 님 안녕하세요^^</span></li>
-				    <li>
-                        <a class="btn btn-white btn-sm" href="">로그아웃</a>
-                    </li>
-                    <li>
-                        <a class="btn btn-white btn-sm" href="">정보수정</a>
-                    </li>
-			    </ul>
-                -->
-                 	
-               <ul class="clearfix">
-                    <li>
-                        <a class="btn btn-white btn-sm" href="">로그인</a>
-                    </li>
-                    <li>
-                        <a class="btn btn-white btn-sm" href="">회원가입</a>
-                    </li>
-                </ul>
+              	<!-- 로그인 되었을때(세션에 값이 있을때) -->
+              	<c:if test="${sessionScope.authUser != null}">
+					<ul class="clearfix">
+						<li><span class="user-welcome"> ${sessionScope.authUser.name}님 안녕하세요^^</span></li>
+						<li>
+							<a class="btn btn-white btn-sm" href="">로그아웃</a>
+						</li>
+						<li>
+						    <a class="btn btn-white btn-sm" href="">정보수정</a>
+						</li>
+			   	 	</ul>
+              	</c:if>
+                
+	
+ 				<!-- 로그인 되지 않을때(세션에 값없을때) -->
+              	<c:if test="${sessionScope.authUser == null}">
+              		<ul class="clearfix">
+						<li>
+						    <a class="btn btn-white btn-sm" href="">로그인</a>
+						</li>
+						<li>
+						    <a class="btn btn-white btn-sm" href="">회원가입</a>
+						</li>
+				 	</ul>
+              	</c:if>
+				
             </header>
                  
             <nav>

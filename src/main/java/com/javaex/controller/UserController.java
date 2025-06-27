@@ -68,14 +68,24 @@ public class UserController {
 		UserVO authUser = userService.exeLogin(userVO);
 		System.out.println(authUser);
 		
+		//세션영역에 확인용 값을 넣어준다  -->로그인
 		session.setAttribute("authUser", authUser);
 		
-		
-		return "";
+		return "redirect:/";
 	}
 	
 	
-	
+	//--로그아웃
+	@RequestMapping(value="/user/logout", method= {RequestMethod.GET, RequestMethod.POST})
+	public String logout(HttpSession session) {
+		System.out.println("UserController.logout()");
+		
+		//세션의 확인용 값을 지운다
+		//session.removeAttribute("authUser");
+		session.invalidate();
+		
+		return "redirect:/";
+	}
 	
 	
 	
