@@ -17,7 +17,7 @@
             <header class="clearfix">
                 <h1><a href="">MySite</a></h1>
               
-                <!--
+                
 			    <ul class="clearfix">
 				    <li><span class="user-welcome">황일영 님 안녕하세요^^</span></li>
 				    <li>
@@ -27,8 +27,8 @@
                         <a class="btn btn-white btn-sm" href="">정보수정</a>
                     </li>
 			    </ul>
-                -->
-                 	
+
+               <!--  	
                <ul class="clearfix">
                     <li>
                         <a class="btn btn-white btn-sm" href="">로그인</a>
@@ -37,6 +37,7 @@
                         <a class="btn btn-white btn-sm" href="">회원가입</a>
                     </li>
                 </ul>
+                 -->
             </header>
                  
             <nav>
