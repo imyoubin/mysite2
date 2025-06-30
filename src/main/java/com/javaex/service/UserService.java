@@ -31,6 +31,14 @@ public class UserService {
 		return authUser;
 	}
 	
+	//--회원수정폼
+	public UserVO exeEditForm(int no) {
+		System.out.println("UserService.exeEditForm()");
+		
+		UserVO userVO =userRepository.userSelectByNo(no);
+		
+		return userVO;
+	}
 	
 	
 	

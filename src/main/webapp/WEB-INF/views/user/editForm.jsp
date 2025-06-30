@@ -7,17 +7,16 @@
     <head>
         <meta charset="UTF-8">
         <title>MySite</title>
-        <link rel="stylesheet" href="../../assets/css/reset.css">
-        <link rel="stylesheet" href="../../assets/css/mysite.css">
-        <link rel="stylesheet" href="../../assets/css/user.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/reset.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mysite.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/user.css">
     </head>
 
     <body>
-        <div class="wrap">
+       <div class="wrap">
             <!-- 해더 + 네비 ------------------------------------>
             <c:import url="/WEB-INF/views/include/header.jsp"></c:import>
-            <!-- 해더 + 네비 -------------------------------------->
-            </nav>
+            <!-- 해더 + 네비 ------------------------------------>
 
             <div class="content2 clearfix">
                 <aside>
@@ -36,23 +35,34 @@
                         <ol class="clearfix">
                             <li>홈</li>
                             <li>유저</li>
-                            <li>로그인</li>
+                            <li>회원정보</li>
                         </ol>
                     </div>
 
-                    <div id="user-loginform">
+                    <div id="user-editform">
                         
-                        <form class="form-box" action="http://localhost:8888/user/login" method="get">
+                        <form class="form-box" action="" method="">
                             <div class="info-row">
-                                <label class="info-title" for="txt-idcheck">아이디</label>
-                                <input id="txt-idcheck" type="text" name="id" value="">
+                                <span class="info-title">아이디</span>
+                                <span id="txt-id">${requestScope.userVO.id}</span>
                             </div>
                             <div class="info-row">
                                 <label class="info-title" for="txt-pwd">패스워드</label>
-                                <input id="txt-pwd" type="password" name="password" value="">
+                                <input id="txt-pwd" type="password" name="" value="${requestScope.userVO.password}">
+                            </div>
+                            <div class="info-row">
+                                <label class="info-title" for="txt-name">이름</label>
+                                <input id="txt-name" type="text" name="" value="${requestScope.userVO.name}">
+                            </div>
+                            <div class="info-row">
+                                <span class="info-title">성별</span>
+                                <label>남</label>
+                                <input type="radio">
+                                <label>여</label>
+                                <input type="radio">
                             </div>
                             <div class="btn-group">
-                                <button class="btn btn-blue btn-lg" type="submit">로그인</button>
+                                <button id="btn-edit" class="btn btn-blue btn-lg" type="submit">회원정보수정</button>
                             </div>
                         </form>
                         

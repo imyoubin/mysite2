@@ -23,7 +23,7 @@ public class UserRepository {
 	}
 	
 	
-	//--user정보가져오기(id password)
+	//--user정보가져오기(id password) -->세션저장용
 	public UserVO userSelectOneByIdPw(UserVO userVO) {
 		System.out.println("UserRepository.userSelectOneByIdPw()");
 		
@@ -34,6 +34,16 @@ public class UserRepository {
 		//System.out.println(authUser); //다 들어있다  0x567
 
 		return authUser;
+		
+	}
+	
+	//--user정보가져오기(no) -->회원수정폼
+	public UserVO userSelectByNo(int no) {
+		System.out.println("UserRepository.userSelectByNo()");
+		
+		UserVO userVO = sqlSession.selectOne("user.userSelectByNo", no);
+		
+		return userVO;
 		
 	}
 	

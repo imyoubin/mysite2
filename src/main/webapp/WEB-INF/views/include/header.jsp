@@ -14,7 +14,7 @@
 			</li>
 			
 			<li>
-			    <a class="btn btn-white btn-sm" href="">정보수정</a>
+			    <a class="btn btn-white btn-sm" href="${pageContext.request.contextPath}/user/editform">정보수정</a>
 			</li>
 		</ul>
 	</c:if>
