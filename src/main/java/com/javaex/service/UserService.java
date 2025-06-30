@@ -41,6 +41,15 @@ public class UserService {
 	}
 	
 	
+	//--회원정보수정
+	public int exeEdit(UserVO userVO) {
+		System.out.println("UserService.exeEdit()");
+		
+		int count = userRepository.userUpdate(userVO);
+		
+		return count;
+		
+	}
 	
 }
 

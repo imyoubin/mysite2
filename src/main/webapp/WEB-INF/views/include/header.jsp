@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <header class="clearfix">
-	<h1><a href="">MySite</a></h1>
+	<h1><a href="${pageContext.request.contextPath}/">MySite</a></h1>
 	
 	<!-- 로그인 되었을때(세션에 값이 있을때) -->
 	<c:if test="${sessionScope.authUser != null}">
