@@ -116,15 +116,20 @@ public class BoardService {
 		boolean next = false;
 		if(listCnt*endPageBtnNo < totalCount) { //한페이지당글갯수(10)*마지막 버튼 번호(5) <  전체글갯수(51)  
 			next = true;
-		}
+		}else { //다음 화살표가 false 일때 마지막 버튼 번호를 다시계산해야한다
+	    	//181 --> 19page  181/10 --> 18.1  --> 19 올림처리한다
+	    	
+	    	endPageBtnNo = (int)Math.ceil(totalCount/((double)listCnt));                 
+	    }
+
 		
 		//이전 화살표 유무 prev
 	    boolean prev = false;
 	    if(startPageBtnNo != 1) {
 	    	prev = true;
 	    }
-
-	   
+	    
+	    
 	    //모두 묶어서 컨트롤러에 리턴해준다 --> Map 사용
 	    Map<String, Object> pMap = new HashMap<String, Object>();
 	    pMap.put("boardList", boardList);  //리스트
