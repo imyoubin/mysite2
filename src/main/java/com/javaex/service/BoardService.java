@@ -52,9 +52,53 @@ public class BoardService {
 		limitMap.put("listCnt", listCnt);
 		
 		//레파이토리에 보낸다
-		boardRepository.boardSelectList2(limitMap);
+		List<BoardVO> boardList = boardRepository.boardSelectList2(limitMap);
 		
-		return null;
+		////////////////////////////////////////////////////////
+		///페이징버튼 (하단 버튼)
+		////////////////////////////////////////////////////////
+		
+		//페이지당 버튼갯수
+		int pageBtnCount = 5;
+		
+		//마지막 버튼 번호 endPageBtnNo
+		/*
+		 1  2  3  4  5  >
+		 1->(1, 5)
+		 2->(1, 5)
+		 3->(1, 5)
+		 4->(1, 5)
+		 5->(1, 5)
+		 6->(6, 10)
+		 7->(6, 10)
+		 ...
+		 10->(6, 10)
+		 11->(11, 15)	
+		 
+		 1->  올림(1/5)5  --> 0.2(1)*5  -->5
+		 2->  올림(2/5)5  --> 0.4(1)*5  -->5
+		 3->  올림(3/5)5  --> 0.6(1)*5  -->5
+		 4->  올림(4/5)5  --> 0.8(1)*5  -->5
+		 5->  올림(5/5)5  --> 1.0(1)*5  -->5
+		 6->  올림(6/5)5  --> 1.2(2)*5  -->10
+		 11-> 올림(11/5)5 --> 2.2(3)*5  -->15
+		*/
+		
+
+		int endPageBtnNo = ((int)Math.ceil(crtPage/((double)pageBtnCount)))*pageBtnCount;
+		                
+		
+		
+		/*
+		prev
+		next
+
+		startPageBtnNo
+		*/
+
+		
+		
+		return boardList;
 	}
 	
 	

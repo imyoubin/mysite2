@@ -31,9 +31,9 @@ public class BoardRepository {
 	public List<BoardVO> boardSelectList2(Map<String, Integer> limitMap) {
 		System.out.println("BoardRepository.boardSelectList2()");
 		
-		System.out.println(limitMap);
+		List<BoardVO> boardList =sqlSession.selectList("board.selectList2", limitMap);
 		
-		return null;
+		return boardList;
 	}
 }
 
