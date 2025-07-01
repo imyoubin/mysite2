@@ -36,4 +36,14 @@
 			limit #{startRowNo}, #{listCnt}
 		]]>
 	</select>
+	
+	<!-- 전체글갯수 구하기 -->
+	<select id="selectTotalCount" resultType="int">
+		<![CDATA[
+			select count(*) count
+			from board
+		]]>
+	</select>
+	
+	
 </mapper>

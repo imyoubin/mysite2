@@ -35,6 +35,18 @@ public class BoardRepository {
 		
 		return boardList;
 	}
+	
+	//--전체글갯수(페이징)
+	public int selectTotalCount() {
+		System.out.println("BoardRepository.selectTotalCount()");
+		
+		int totalCount = sqlSession.selectOne("board.selectTotalCount");
+		
+		return totalCount;
+	}
+	
+	
+	
 }
 
 

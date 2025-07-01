@@ -1,6 +1,7 @@
 package com.javaex.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,9 +42,11 @@ public class BoardController {
 						Model model ) {
 		System.out.println("BoardController.list2()");
 		
-		List<BoardVO> boardList = boardService.exeList2(crtPage);
+		Map<String, Object> pMap = boardService.exeList2(crtPage);
+		System.out.println(pMap);
 		
-		model.addAttribute("boardList", boardList);
+		
+		//model.addAttribute("boardList", boardList);
 		
 		return "board/list2";
 	}
