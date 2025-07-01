@@ -15,6 +15,7 @@
 			        u.name userName
 			from users u, board b
 			where u.no = b.user_no
+			order by b.no asc
 		]]>
 	</select>
 	

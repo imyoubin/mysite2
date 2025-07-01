@@ -7,11 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.BoardService;
 import com.javaex.vo.BoardVO;
 
 @Controller
+@RequestMapping(value="/board")
 public class BoardController {
 
 	//필드
@@ -21,7 +23,7 @@ public class BoardController {
 	//메소드일반
 	
 	//--게시판 전체 리스트
-	@RequestMapping(value="/board/list", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/list", method= {RequestMethod.GET, RequestMethod.POST})
 	public String list(Model model) {
 		System.out.println("BoardController.list()");
 		
@@ -32,6 +34,38 @@ public class BoardController {
 		
 		return "board/list";
 	}
+	
+	//--게시판 전체 리스트2(페이징)
+	@RequestMapping(value="/list2", method= {RequestMethod.GET, RequestMethod.POST})
+	public String list2(@RequestParam("crtpage") int crtPage) {
+		System.out.println("BoardController.list2()");
+		
+		boardService.exeList2(crtPage);
+		
+		
+		return "";
+	}
+	
+	
+	
+	
+	
+	//--글쓰기폼
+	
+	
+	//--글쓰기
+	
+	
+	//--수정폼
+	
+	
+	//--수정
+	
+	
+	//--삭제
+	
+	
+	
 	
 	
 	

@@ -1,6 +1,7 @@
 package com.javaex.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,4 +27,27 @@ public class BoardRepository {
 	}
 	
 	
+	//--전체리스트 가져오기2(페이징)
+	public List<BoardVO> boardSelectList2(Map<String, Integer> limitMap) {
+		System.out.println("BoardRepository.boardSelectList2()");
+		
+		System.out.println(limitMap);
+		
+		return null;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
