@@ -117,7 +117,7 @@ public class UserController {
 	
 	
 	//--회원정보 수정
-	@RequestMapping(value = "/edit", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/edit", method = {RequestMethod.GET, RequestMethod.POST })
 	public String edit(@ModelAttribute UserVO userVO, HttpSession session) {
 		System.out.println("UserController.edit()");
 		

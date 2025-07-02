@@ -40,7 +40,7 @@
                     </div>
 
                     <div id="user-editform">
-                        <form class="form-box" action="${pageContext.request.contextPath}/user/edit" method="get">
+                        <form class="form-box" action="${pageContext.request.contextPath}/user/edit" method="put">
                             <div class="info-row">
                                 <span class="info-title">아이디</span>
                                 <span id="txt-id">${requestScope.userVO.id}</span>

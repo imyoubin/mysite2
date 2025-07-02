@@ -36,6 +36,17 @@ public class BoardRepository {
 		return boardList;
 	}
 	
+	
+	//--전체리스트 가져오기3(페이징+검색)
+	public List<BoardVO> boardSelectList3(Map<String, Object> limitMap) {
+		System.out.println("BoardRepository.boardSelectList3()");
+		
+		List<BoardVO> boardList =sqlSession.selectList("board.selectList3", limitMap);
+		
+		return boardList;
+	}
+	
+	
 	//--전체글갯수(페이징)
 	public int selectTotalCount() {
 		System.out.println("BoardRepository.selectTotalCount()");
@@ -45,6 +56,14 @@ public class BoardRepository {
 		return totalCount;
 	}
 	
+	//--전체글갯수(페이징+검색)
+	public int selectTotalCountByKwd(String kwd) {
+		System.out.println("BoardRepository.selectTotalCountByKwd()");
+		
+		int totalCount = sqlSession.selectOne("board.selectTotalCountByKwd", kwd);
+		
+		return totalCount;
+	}
 	
 	
 }
