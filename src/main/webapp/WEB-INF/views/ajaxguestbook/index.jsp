@@ -83,34 +83,8 @@
 						
 						
 						<div id="gbListArea">
-						
+							<!-- 리스트가 출력되는자리 -->
 						</div>
-						
-						
-						
-						<c:forEach items="${requestScope.gList}" var="guestbookVO">
-							<table class="guestbook-item">
-								<colgroup>
-									<col style="width: 10%;">
-									<col style="width: 40%;">
-									<col style="width: 40%;">
-									<col style="width: 10%;">
-								</colgroup>
-								<tbody>
-									<tr>
-										<td>${guestbookVO.no}</td>
-										<td>${guestbookVO.name}</td>
-										<td>${guestbookVO.regDate}</td>
-										<td class="txt-center">
-											<a class="btn btn-gray btn-sm" href="${pageContext.request.contextPath}/guestbook/rform?no=${guestbookVO.no}">삭제</a>
-										</td>
-									</tr>
-									<tr>
-										<td colspan=4>${guestbookVO.content}</td>
-									</tr>
-								</tbody>
-							</table>
-						</c:forEach>
 						
 					</div>
 			    
