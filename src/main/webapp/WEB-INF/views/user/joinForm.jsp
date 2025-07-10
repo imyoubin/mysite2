@@ -81,6 +81,7 @@
                                 <label class="info-title" for="txt-idcheck">아이디</label>
                                 <input id="txt-idcheck" type="text" name="id" value="">
                                 <button id="" class="btn btn-gray btn-input"  type="button">중복체크</button>
+                           		<p>사용가능한 아이디입니다.</p>
                             </div>
                             <div class="info-row">
                                 <label class="info-title" for="txt-pwd">패스워드</label>

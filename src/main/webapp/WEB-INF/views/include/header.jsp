@@ -27,7 +27,7 @@
 			    <a class="btn btn-white btn-sm" href="${pageContext.request.contextPath}/user/loginform">로그인</a>
 			</li>
 			<li>
-			    <a class="btn btn-white btn-sm" href="">회원가입</a>
+			    <a class="btn btn-white btn-sm" href="${pageContext.request.contextPath}/user/joinform">회원가입</a>
 			</li>
 		</ul>
 	</c:if>
@@ -37,9 +37,9 @@
 <nav>
     <ul class="clearfix">
         <li><a href="">입사지원서</a></li>
-        <li><a href="">게시판</a></li>
+        <li><a href="${pageContext.request.contextPath}/board">게시판</a></li>
         <li><a href="">갤러리</a></li>
-        <li><a href="">방명록</a></li>
+        <li><a href="${pageContext.request.contextPath}/guestbook">방명록</a></li>
     </ul>
 </nav>
 

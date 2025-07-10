@@ -57,6 +57,16 @@ public class UserRepository {
 		return count;
 	}
 	
+	
+	//--아이디사용유무체크(회원가입)
+	public void userSelectById(String id) {
+		System.out.println("UserRepository.userSelectById()");
+		System.out.println(id);
+	}
+	
+	
+	
+	
 }
 
 

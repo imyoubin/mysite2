@@ -52,7 +52,7 @@ public class BoardController {
 	}
 	
 	//--게시판 전체 리스트3(페이징+검색)
-	@RequestMapping(value="/list3", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value={"", "/", "/list3"}, method= {RequestMethod.GET, RequestMethod.POST})
 	public String list3(@RequestParam(value="crtpage", required = false, defaultValue = "1") int crtPage, 
 						@RequestParam(value="kwd", required = false, defaultValue = "") String kwd,
 						Model model ) {

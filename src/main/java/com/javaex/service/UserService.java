@@ -51,7 +51,25 @@ public class UserService {
 		
 	}
 	
+
+	//--아이디사용유무체크(회원가입)
+	public void exeIdcheck(String id) {
+		System.out.println("UserService.exeIdcheck()");
+		
+		userRepository.userSelectById(id);
+		
+	}
+	
 }
+
+
+
+
+
+
+
+
+
 
 
 
