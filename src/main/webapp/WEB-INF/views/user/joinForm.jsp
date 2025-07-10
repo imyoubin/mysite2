@@ -84,9 +84,7 @@
                                 <label class="info-title" for="txt-idcheck">아이디</label>
                                 <input id="txt-idcheck" type="text" name="id" value="">
                                 <button id="btnCheck" class="btn btn-gray btn-input"  type="button">중복체크</button>
-                           		
-                           	
-                           		       		
+                           		<p id="checkMsg"></p>
                             </div>
                             <div class="info-row">
                                 <label class="info-title" for="txt-pwd">패스워드</label>
@@ -153,6 +151,19 @@ $(document).ready(function(){
 			dataType : "json",
 			success : function(result){
 				/*성공시 처리해야될 코드 작성*/
+				console.log(result);
+				console.log(result.isUse);
+				
+				//상황에 맞는 메세지 출력--->저위에 있는 html 사이에 html출력해줘야한다
+				if(result.isUse == true){
+					$('#checkMsg').html('사용할 수 있는 아이디 입니다.')
+					$('#checkMsg').css('color', '#0000ff');	
+					$('#checkMsg').css('font-weight', 'bold');
+				}else {
+					$('#checkMsg').html('<strong>이미 사용중인 아이디 입니다.</strong>');
+					$('#checkMsg').css('color', '#ff0000');	
+					$('#checkMsg').css('font-weight', 'bold');
+				}
 				
 			},
 			error : function(XHR, status, error) {
