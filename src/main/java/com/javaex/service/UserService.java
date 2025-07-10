@@ -53,10 +53,20 @@ public class UserService {
 	
 
 	//--아이디사용유무체크(회원가입)
-	public void exeIdcheck(String id) {
+	public boolean exeIdcheck(String id) {
 		System.out.println("UserService.exeIdcheck()");
 		
-		userRepository.userSelectById(id);
+		UserVO userVO = userRepository.userSelectById(id);
+		System.out.println("service");
+		System.out.println(userVO);
+		
+		if(userVO == null) {
+			//사용할수 있는 아이디
+			return true;
+		}else {
+			//사용중인 아이디
+			return false;
+		}
 		
 	}
 	

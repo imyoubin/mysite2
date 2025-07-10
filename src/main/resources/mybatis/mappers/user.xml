@@ -24,7 +24,7 @@
 	</select>
 	
 	<!-- no로 user정보 가져오기(회원수정폼) -->
-	<select id="userSelectByNo" parameterType="int" resultType="com.javaex.vo.UserVO">
+	<select id="selectByNo" parameterType="int" resultType="com.javaex.vo.UserVO">
 		<![CDATA[
 			select 	no,
 					id,
@@ -48,7 +48,17 @@
 	</update>
 	
 	
-	
+	<!-- 아이디사용유무체크(회원가입) -->
+	<select id="selectOneById" parameterType="string" resultType="com.javaex.vo.UserVO">
+		<![CDATA[
+			select 	no,
+					id,
+			        name,
+			        gender
+			from users
+			where id=#{id}
+		]]>
+	</select>
 	
 	
 	

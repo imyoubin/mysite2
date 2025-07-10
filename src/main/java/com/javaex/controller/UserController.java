@@ -145,14 +145,18 @@ public class UserController {
 		return "redirect:/";
 	}
 	
-	//아이디사용유무체크(회원가입)
+	//아이디사용유무체크(회원가입) --> 데이타만 응답 
 	@RequestMapping(value="/idcheck", method= {RequestMethod.GET, RequestMethod.POST} )
-	public String idcheck(@RequestParam(value="id") String id) {
+	public String idcheck(@RequestParam(value="id") String id, Model model) {
 		System.out.println("UserController.idcheck()");
 		
-		userService.exeIdcheck(id);
+		boolean isUse = userService.exeIdcheck(id);
+		System.out.println(isUse);
 		
-		return "";
+		//model.addAttribute("isUse", isUse);  //jsp에 전달의미 지금은 아이다
+		String result = "{'isUse': '"+ isUse  +"'}";
+		System.out.println(result);
+		return "user/joinForm";
 	}
 	
 	
