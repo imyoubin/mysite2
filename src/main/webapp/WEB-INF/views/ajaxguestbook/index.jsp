@@ -41,7 +41,7 @@
                     </div>
 
 					<div id="guestbook-addlist">
-						<form class="form-box" action="${pageContext.request.contextPath}/guestbook/add" method="get">
+						<form id="formAdd" class="form-box" action="" method="get">
 							<table>
 								<colgroup>
 									<col style="width: 70px;">
@@ -102,7 +102,8 @@
 $(document).ready(function(){
 	console.log('돔트리완성');
 	
-	fetchList();  //리스트데이타요청해서 그리는 함수
+	//리스트데이타요청해서 화면에 리스트 그리는 함수
+	fetchList(); 
 	
 	/*
 	//버튼클릭할때
@@ -113,6 +114,22 @@ $(document).ready(function(){
 
 	});
 	*/
+	
+	//등록버튼을 클릭했을때
+	$('#formAdd').on('submit', function(event){
+		console.log('등록버튼클릭');
+		event.preventDefault();
+		
+		//value값 수집
+		
+		
+		
+		
+	});
+		
+	
+	
+	
 	
 });
 
