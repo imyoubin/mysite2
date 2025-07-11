@@ -79,7 +79,7 @@
 							</table>
 						</form>	
 						
-						<button id="btnList" class="btn btn-blue btn-md" type="button">전체데이터 요청</button>
+						<!-- <button id="btnList" class="btn btn-blue btn-md" type="button">전체데이터 요청</button> -->
 						
 						
 						<div id="gbListArea">
@@ -121,8 +121,42 @@ $(document).ready(function(){
 		event.preventDefault();
 		
 		//value값 수집
+		let name = $('#txt-name').val();
+		let pw = $('#txt-password').val();
+		let content = $('#text-content').val();
 		
+		//vo묶기
+		let guestbookVO = {
+			name: name,
+			password: pw,
+			content: content
+		};
+		console.log(guestbookVO);
 		
+		//서버에 저장 요청
+		$.ajax({
+			
+			url : '${pageContext.request.contextPath }/api/guestbook/add',		
+			type : 'post',
+			//contentType : "application/json",
+			data : guestbookVO,
+			
+			dataType : 'json',
+			success : function(guestbookVO){
+				/*성공시 처리해야될 코드 작성*/
+				
+				/* 화면에 그리기 */
+				render(guestbookVO, 'up');
+				
+				/* 입력폼 비우기 */
+				$('#txt-name').val('');
+				$('#txt-password').val('');
+				$('#text-content').val('')
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
 		
 		
 	});
@@ -149,7 +183,7 @@ function fetchList(){
 			
 			//화면에 그린다
 			for(let i=0; i<guestbookList.length; i++){
-				render(guestbookList[i]);
+				render(guestbookList[i], 'down');
 			}
 			 
 		},
@@ -161,7 +195,7 @@ function fetchList(){
 
 
 //guestbookVO 1개를 화면에 그린다
-function render(guestbookVO){
+function render(guestbookVO, updown){
 	console.log(guestbookVO);
 	
 	let str = '';
@@ -186,9 +220,15 @@ function render(guestbookVO){
 	str += '	</tbody>' ;
 	str += '</table>' ;
 
+	if(updown == 'up'){
+		$('#gbListArea').prepend(str);	
 	
-	$('#gbListArea').append(str);
+	}else if(updown == 'down'){
+		$('#gbListArea').append(str);
 	
+	}else {
+		console.log('방향체크')
+	}
 	
 }
 

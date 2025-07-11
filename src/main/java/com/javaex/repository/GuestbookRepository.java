@@ -45,4 +45,30 @@ public class GuestbookRepository {
 		return count;
 	}
 
+	
+	//저장하고 키가져오기(ajax)
+	public int guestbookInsertKey(GuestbookVO guestbookVO) {
+		System.out.println("GuestbookRepository.guestbookInsertKey()");
+			
+		int count = sqlSession.insert("guestbook.insertkey", guestbookVO);
+		
+		return guestbookVO.getNo();
+	} 
+	
+	
+	//글1개 가져오기
+	public GuestbookVO guestbookSelectOne(int no) {
+		System.out.println("GuestbookRepository.guestbookSelectOne()");
+		
+		GuestbookVO guestbookVO = sqlSession.selectOne("guestbook.selectOne", no);
+		
+		return guestbookVO;
+
+	}
+	
+	
+	
+	
+	
+	
 }
