@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/reset.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mysite.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/guestbook.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/modal.css">
         <!-- js -->
         <script src="${pageContext.request.contextPath}/assets/js/jquery/jquery-3.7.1.js"></script>
     </head>
@@ -98,6 +99,29 @@
         </div>
         
 <!-- ------------------------------------------------------------ -->
+<!-- 모달창 -->
+<div class="modal-bg">
+
+	<div class="modal-content">
+		<p>비밀번호 입력해 주세요</p>
+	
+		<form action="" method="">
+			<div>
+				<input type="password" name="passowrd" value="">
+				<input type="text" name="no" value="">
+			</div>
+			<button type="submit" class="btn-del btn btn-blue btn-md">삭제</button>
+			<button class="btn-close btn btn-gray btn-md">닫기</button>
+		</form>
+		
+	</div>
+
+</div>
+
+
+
+
+<!-- ------------------------------------------------------------ -->
 <script>
 $(document).ready(function(){
 	console.log('돔트리완성');
@@ -162,8 +186,32 @@ $(document).ready(function(){
 	});
 		
 	
+	/* 삭제(모달창 띄우기)버튼을 클릭했을때 -->삭제모달창 */ 
+	$('#gbListArea').on('click', '.btn-modal',  function(){
+		console.log('모달창 떠라');
+		
+		$('.modal-bg').addClass('active');
+		
+		//내가 가지고 있는 no값을  /  모달창의 no값 넣는input박스에 넣어둔다
+		let $this = $(this);
+		let no = $this.data('no');
+		console.log(no);
+
+		$('[name="no"]').val(no);
+	});
 	
 	
+	//모달창의 닫기버튼을 클릭했을때
+	$('.btn-close').on('click', function(){
+		console.log('모달차의 닫기버튼 클릭');
+		
+		$('.modal-bg').removeClass('active');
+		
+	});
+	
+	
+	//모달창의 삭제 버튼을 클릭했을때(진짜삭제)
+	.btn-del 클릭(전송)했을때
 	
 });
 
@@ -211,7 +259,7 @@ function render(guestbookVO, updown){
 	str += '			<td>' + guestbookVO.name +'</td>' ;
 	str += '			<td>' + guestbookVO.regDate +'</td>' ;
 	str += '			<td class="txt-center">' ;
-	str += '				<a class="btn btn-gray btn-sm" href="">삭제</a>' ;
+	str += '				<button class="btn-modal btn btn-gray btn-sm" data-no="' +guestbookVO.no+ '">삭제</button>' ;
 	str += '			</td>' ;
 	str += '		</tr>' ;
 	str += '		<tr>' ;
