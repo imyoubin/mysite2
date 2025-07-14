@@ -162,16 +162,26 @@ $(document).ready(function(){
 			data : guestbookVO,
 			
 			dataType : 'json',
-			success : function(guestbookVO){
+			success : function(jsonResult){
 				/*성공시 처리해야될 코드 작성*/
+				console.log(jsonResult);
+				console.log(jsonResult.result);
+				console.log(jsonResult.apiData);
 				
-				/* 화면에 그리기 */
-				render(guestbookVO, 'up');
+				if(jsonResult.result == 'success'){
+					
+					/* 화면에 그리기 */
+					render(jsonResult.apiData, 'up');
+					
+					/* 입력폼 비우기 */
+					$('#txt-name').val('');
+					$('#txt-password').val('');
+					$('#text-content').val('')
+				}else {
+					console.log("등록 실패");
+				}
 				
-				/* 입력폼 비우기 */
-				$('#txt-name').val('');
-				$('#txt-password').val('');
-				$('#text-content').val('')
+			
 			},
 			error : function(XHR, status, error) {
 				console.error(status + " : " + error);
@@ -233,17 +243,19 @@ $(document).ready(function(){
 			data : guestbookVO,
 
 			dataType : 'json',
-			success : function(result){
+			success : function(jsonResult){
 			    /*성공시 처리해야될 코드 작성*/
-			    console.log(result);
+			    console.log(jsonResult);
+			    console.log(jsonResult.result);
 			    
-			    if(result == 1){    
-				    //리스트에서 선택한거 화면에서 지우기
+			    if(jsonResult.result == 'success'){
+			    	//리스트에서 선택한거 화면에서 지우기
 				    $('#t'+no).remove();   //아이디를 매칭시킨다
+				    $('.modal-bg').removeClass('active');
+			    }else {
+			    	//모달창 닫기
+				    $('.modal-bg').removeClass('active');	
 			    }
-			    
-			  	//모달창 닫기
-			    $('.modal-bg').removeClass('active');
 			    
 			},
 			error : function(XHR, status, error) {
@@ -269,13 +281,19 @@ function fetchList(){
 		//data : {name: ”홍길동"},
 		
 		dataType : "json",
-		success : function(guestbookList){
+		success : function(jsonResult){
 			/*성공시 처리해야될 코드 작성*/
-			//console.log(guestbookList);
+			console.log(jsonResult);
+			console.log(jsonResult.result);
+			console.log(jsonResult.apiData);
 			
-			//화면에 그린다
-			for(let i=0; i<guestbookList.length; i++){
-				render(guestbookList[i], 'down');
+			if(jsonResult.result == 'success'){
+				//화면에 그린다
+				for(let i=0; i<jsonResult.apiData.length; i++){
+					render(jsonResult.apiData[i], 'down');
+				}
+			}else {
+				console.log('알수없는 오류')
 			}
 			 
 		},
