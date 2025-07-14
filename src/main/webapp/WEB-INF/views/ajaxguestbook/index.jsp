@@ -22,27 +22,22 @@
             <!-- 해더 + 네비 ------------------------------------>
 		
             <div class="content2 clearfix">
-                <aside>
-                    <h2>방명록</h2>
-                    <ul>
-                        <li><a href="${pageContext.request.contextPath}/guestbook">일반방명록</a></li>
-                        <li><a href="">ajax방명록</a></li>
-                    </ul>
-                </aside>
-
+            	<!-- 방명록 aside -->
+ 				<c:import url="/WEB-INF/views/include/asideGuestbook.jsp"></c:import>
+				<!-- /방명록 aside -->
 				<main>
 					
 				    <div class="main-head clearfix">
-                        <h3>일반방명록</h3>
+                        <h3>ajax방명록</h3>
                         <ol class="clearfix">
                             <li>홈</li>
                             <li>방명록</li>
-                            <li>일반방명록</li>
+                            <li>ajax방명록</li>
                         </ol>
                     </div>
 
 					<div id="guestbook-addlist">
-						<form id="formAdd" class="form-box" action="" method="get">
+						<form id="formAdd" class="form-box" action="" method="">
 							<table>
 								<colgroup>
 									<col style="width: 70px;">
@@ -141,6 +136,7 @@ $(document).ready(function(){
 	
 	//등록버튼을 클릭했을때
 	$('#formAdd').on('submit', function(event){
+		
 		console.log('등록버튼클릭');
 		event.preventDefault();
 		
@@ -160,7 +156,7 @@ $(document).ready(function(){
 		//서버에 저장 요청
 		$.ajax({
 			
-			url : '${pageContext.request.contextPath }/api/guestbook/add',		
+			url : '${pageContext.request.contextPath }/api/guestbooks',		
 			type : 'post',
 			//contentType : "application/json",
 			data : guestbookVO,
@@ -225,15 +221,14 @@ $(document).ready(function(){
 		let no = $('#modalForm input[name="no"]').val();
 		
 		let guestbookVO = {
-			no: no,
 			password: pw
 		};
 		
 		//전송
 		$.ajax({
 			
-			url : '${pageContext.request.contextPath}/api/guestbook/remove',		
-			type : 'post',
+			url : '${pageContext.request.contextPath}/api/guestbooks/'+no,		
+			type : 'delete',
 			//contentType : 'application/json',
 			data : guestbookVO,
 
@@ -267,8 +262,9 @@ $(document).ready(function(){
 //리스트데이타요청해서 그리는 함수
 function fetchList(){
 	$.ajax({
-		url : "${pageContext.request.contextPath}/api/guestbook/list",
-		type : "post",
+		url : "${pageContext.request.contextPath}/api/guestbooks",
+		/*rl : "https://raw.githubusercontent.com/clz2025-red/api/refs/heads/main/guestbook",*/
+		type : "get",
 		//contentType : "application/json",
 		//data : {name: ”홍길동"},
 		
