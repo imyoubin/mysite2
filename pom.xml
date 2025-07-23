@@ -44,6 +44,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- Tomcat을 provided로 설정 -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-tomcat</artifactId>
+		    <scope>provided</scope>
+		</dependency>
 		<!--/기본-->
 		
 		<!--jsp servlet으로 변환-->
@@ -111,12 +118,13 @@
 
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+	    <finalName>ROOT</finalName>
+	    <plugins>
+	       <plugin>
+	           <groupId>org.springframework.boot</groupId>
+	           <artifactId>spring-boot-maven-plugin</artifactId>
+	       </plugin>
+	    </plugins>
 	</build>
 
 </project>
