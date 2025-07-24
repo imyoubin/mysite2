@@ -23,7 +23,9 @@ public class AttachService {
 		System.out.println("AttachService.exeUpload()");
 		
 		//파일저장경로
-		String saveDir = "C:\\javaStudy\\upload\\";
+		//String saveDir = "C:\\javaStudy\\upload\\";
+		String saveDir = "/data/upload/";
+		
 		
 		//(1)파일정보를 추출 저장(DB)
 		//오리지널 파일명
