@@ -94,14 +94,4 @@ public class GuestbookApiController {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

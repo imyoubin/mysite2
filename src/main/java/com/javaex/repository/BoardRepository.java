@@ -65,20 +65,4 @@ public class BoardRepository {
 		return totalCount;
 	}
 	
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

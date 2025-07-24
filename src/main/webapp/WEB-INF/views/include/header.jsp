@@ -42,4 +42,3 @@
         <li><a href="${pageContext.request.contextPath}/guestbook">방명록</a></li>
     </ul>
 </nav>
-

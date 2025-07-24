@@ -3,7 +3,7 @@
 
 <footer>
    	<p>
-       	Copyright ⓒ 2025 황일영. All right reserved  
+       	Copyright ⓒ 2025 임유빈. All right reserved  
    	</p>
 </footer>
 

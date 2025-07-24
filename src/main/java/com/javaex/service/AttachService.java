@@ -21,12 +21,19 @@ public class AttachService {
 	//메소드일반
 	public String exeUpload(MultipartFile file) {
 		System.out.println("AttachService.exeUpload()");
-		
+	
+		//현재 os명
+		String osName = System.getProperty("os.name").toLowerCase();		
+	
 		//파일저장경로
-		//String saveDir = "C:\\javaStudy\\upload\\";
-		String saveDir = "/data/upload/";
+		String saveDir ="";
 		
-		
+		if(osName.contains("win")) { //윈도우면
+			saveDir = "C:\\javaStudy\\upload\\";
+		}else { //리눅스면
+			saveDir = "/data/upload/";
+		}
+				
 		//(1)파일정보를 추출 저장(DB)
 		//오리지널 파일명
 		String orgName = file.getOriginalFilename();
@@ -73,6 +80,5 @@ public class AttachService {
 		return saveName;
 		
 	}
-	
 	
 }

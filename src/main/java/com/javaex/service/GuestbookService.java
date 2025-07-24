@@ -66,17 +66,4 @@ public class GuestbookService {
 		
 	}
 	
-	
-	
-	
-	
 }
-
-
-
-
-
-
-
-
-

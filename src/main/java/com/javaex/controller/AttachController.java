@@ -54,16 +54,4 @@ public class AttachController {
 		return "attach/result";
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
